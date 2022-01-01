@@ -235,7 +235,7 @@ nav .fa{
 /*------ newsletter ------*/
 
 .container{
-    background: url(media/black.jpg) no-repeat center;
+    background: url(Media/black.jpg) no-repeat center;
     background-size: cover;
     height: 40vh;
     padding: 100px 80px;
@@ -283,7 +283,7 @@ nav .fa{
 /*------ pricing ------*/
 
 .pricing{
-    background-image: url(media/banner2.jpg);
+    background-image: url(Media/banner2.jpg);
     background-size: cover;
     padding: 25vh 40px;
 }
