@@ -235,7 +235,7 @@ nav .fa{
 /*------ newsletter ------*/
 
 .container{
-    background: url(Media/black.jpg) no-repeat center;
+    background: url(Media/black.jpg);
     background-size: cover;
     height: 40vh;
     padding: 100px 80px;
