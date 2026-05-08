@@ -1,202 +1,789 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/3606521fce.js" crossorigin="anonymous"></script>
-    <title>Art•emis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pa'Donde — La guía editorial de República Dominicana hecha por locales. Nightlife, gastronomía, rooftops, eventos y cultura dominicana." />
+  <meta property="og:title"       content="Pa'Donde — La Guía de RD" />
+  <meta property="og:description" content="La guía de República Dominicana hecha por locales." />
+  <meta property="og:type"        content="website" />
+  <title>Pa'Donde — La Guía de República Dominicana</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Epilogue:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Placeholder image backgrounds */
+    .img-nightlife { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #0d1b3e 60%, #1a2040 100%); }
+    .img-rooftop   { background: linear-gradient(135deg, #0d2b3e 0%, #1a3a2e 30%, #0d1f2d 100%); }
+    .img-eventos   { background: linear-gradient(135deg, #1a0a2e 0%, #3d1060 100%); }
+    .img-cultura   { background: linear-gradient(135deg, #1a1a0e 0%, #2d2a00 60%, #1a1200 100%); }
+    .img-gastro    { background: linear-gradient(135deg, #2d1010 0%, #4a1a00 60%, #1a0800 100%); }
+    .img-music     { background: linear-gradient(135deg, #001020 0%, #002040 60%, #001830 100%); }
+    .img-design    { background: linear-gradient(135deg, #0a0a1a 0%, #1a0820 60%, #050510 100%); }
+    .img-hero      { background: linear-gradient(135deg, #1a0020 0%, #2d0050 30%, #0d1040 60%, #001830 100%); }
+  </style>
 </head>
-<link rel="shortcut icon" type="image/png" href="Media/Favicon.png">
-    <body>
-        <section class="header">
-            <nav>
-                <a href="index.html"><img src="Media/Logo 1.png" alt=""></a>
-                <div class="nav-links" id="navLinks">
-                    <i class="fa fa-times" onclick="hideMenu"></i>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Brands</a></li>
-                        <li><a href="">Pricing</a></li>
-                        <li><a href="">About</a></li>
-                    </ul>
-                </div>
-                <i class="fa fa-bars" onclick="showMenu"></i>
-            </nav>
+<body>
 
-            <div class="text-box">
-                <h1>THE BOX YOU JUST CAN'T WAIT FOR</h1> <br>
-                <P>Art•emis is a high end subscription program that delivers high quality kicks,<br> complementing your outfit.</P> <br>
-                <a href="" class="hero-btn">Let's get started</a>
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION (WordPress: header.php)
+     ══════════════════════════════════════════════════════════ -->
+<header class="pd-nav" role="banner">
+  <div class="pd-nav__inner">
+    <a href="#home" class="pd-logo" data-page="home" aria-label="Pa'Donde — Inicio">
+      Pa<span>'</span>Donde
+    </a>
+
+    <nav class="pd-nav__links" role="navigation" aria-label="Navegación principal">
+      <a href="#home"     class="pd-nav-link active" data-page="home"     aria-current="page">Home</a>
+      <a href="#explorar" class="pd-nav-link"        data-page="explorar">Explorar</a>
+      <a href="#acerca"   class="pd-nav-link"        data-page="acerca">Acerca De</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:16px;">
+      <button class="pd-nav__search" aria-label="Buscar" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;" onclick="document.querySelector('#explorar')?.click()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="pd-nav__burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Drawer -->
+<nav class="pd-nav__mobile" aria-label="Menú móvil">
+  <a href="#home"     class="pd-nav-link" data-page="home">Home</a>
+  <a href="#explorar" class="pd-nav-link" data-page="explorar">Explorar</a>
+  <a href="#acerca"   class="pd-nav-link" data-page="acerca">Acerca De</a>
+  <div style="margin-top:8px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);">
+    <a href="mailto:contacto@padonde.net" style="font-size:14px;color:var(--pd-pink);">contacto@padonde.net</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE WRAPPER
+     ══════════════════════════════════════════════════════════ -->
+<div class="pd-page">
+
+  <!-- ════════════════════════════════════════════════════════
+       PAGE 1 — PANTALLA PRINCIPAL / HOME
+       WordPress: front-page.php
+       ════════════════════════════════════════════════════════ -->
+  <main data-page-content="home" role="main" aria-label="Página principal">
+
+    <!-- § Hero -->
+    <section aria-label="Artículo destacado" style="padding:40px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-hero">
+        <!-- Simulated hero image with CSS gradient + decorative neon overlay -->
+        <div class="pd-hero__overlay" aria-hidden="true"></div>
+        <div class="img-hero" style="position:absolute;inset:0;"></div>
+        <!-- Neon city visual effects -->
+        <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%, rgba(255,30,118,0.15) 0%, transparent 60%),radial-gradient(ellipse at 30% 80%, rgba(0,100,200,0.12) 0%, transparent 50%);"></div>
+        <!-- Vertical lines decorative -->
+        <div aria-hidden="true" style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 100px,rgba(255,0,100,0.03) 100px,rgba(255,0,100,0.03) 101px);"></div>
+        <div class="pd-hero__gradient" aria-hidden="true"></div>
+
+        <div class="pd-hero__content">
+          <div>
+            <span class="pd-badge pd-badge--featured">Featured Editorial</span>
+          </div>
+          <h1 class="pd-hero__title">
+            VIDA NOCTURNA<br>EN SANTO<br>DOMINGO: GUÍA<br>COMPLETA 2026
+          </h1>
+          <div>
+            <a href="#article" class="pd-btn pd-btn--primary" data-page="article" aria-label="Leer artículo: Vida Nocturna en Santo Domingo">
+              Leer Artículo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- § Trending Now -->
+    <section aria-label="Artículos en tendencia" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-section-header">
+        <h2 class="pd-h2">Trending Now</h2>
+      </div>
+      <div class="pd-grid-4">
+
+        <!-- Card 1 -->
+        <article class="pd-card" role="article" tabindex="0" aria-label="Los mejores bares de Piantini">
+          <div class="pd-card__img-wrap">
+            <div class="img-nightlife pd-card__img" role="img" aria-label="Fotografía de bar nocturno en Piantini" style="height:192px;"></div>
+          </div>
+          <div class="pd-card__body">
+            <span class="pd-badge pd-badge--cyan">Nightlife</span>
+            <h3 class="pd-card__title">Los mejores bares de Piantini</h3>
+            <p class="pd-card__read">4 Min Read</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="pd-card" role="article" tabindex="0" aria-label="Rooftops con vistas espectaculares">
+          <div class="pd-card__img-wrap">
+            <div class="img-rooftop pd-card__img" role="img" aria-label="Fotografía de rooftop con vista panorámica" style="height:192px;"></div>
+          </div>
+          <div class="pd-card__body">
+            <span class="pd-badge pd-badge--cyan">Rooftops</span>
+            <h3 class="pd-card__title">Rooftops con vistas espectaculares</h3>
+            <p class="pd-card__read">6 Min Read</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="pd-card" role="article" tabindex="0" aria-label="Eventos y fiestas que no te puedes perder">
+          <div class="pd-card__img-wrap">
+            <div class="img-eventos pd-card__img" role="img" aria-label="Fotografía de evento nocturno" style="height:192px;"></div>
+          </div>
+          <div class="pd-card__body">
+            <span class="pd-badge pd-badge--cyan">Eventos</span>
+            <h3 class="pd-card__title">Eventos y fiestas que no te puedes perder</h3>
+            <p class="pd-card__read">3 Min Read</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="pd-card" role="article" tabindex="0" aria-label="Arte, música y cultura nocturna">
+          <div class="pd-card__img-wrap">
+            <div class="img-cultura pd-card__img" role="img" aria-label="Fotografía de arte y cultura nocturna" style="height:192px;"></div>
+          </div>
+          <div class="pd-card__body">
+            <span class="pd-badge pd-badge--cyan">Cultura</span>
+            <h3 class="pd-card__title">Arte, música y cultura nocturna</h3>
+            <p class="pd-card__read">5 Min Read</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- § Main Feed + Sidebar -->
+    <section aria-label="Más artículos" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-feed-layout">
+
+        <!-- Feed -->
+        <div class="pd-feed">
+          <div class="pd-section-header">
+            <h2 class="pd-h2">Más en Pa'Donde</h2>
+          </div>
+
+          <!-- Feed Item 1 -->
+          <article class="pd-feed-item" role="article" tabindex="0" aria-label="La revolución culinaria de medianoche">
+            <div class="pd-feed-item__content">
+              <span class="pd-badge pd-badge--green">Gastronomy</span>
+              <h3 class="pd-feed-item__title">La revolución culinaria de medianoche</h3>
+              <p class="pd-feed-item__excerpt">Descubre los spots secretos que están redefiniendo el concepto de cenar tarde. Desde menús de chef que solo aparecen después de la medianoche.</p>
             </div>
-
-        </section>
-
-        <!---testimonials-->
-
-        <section class="testimonials">
-         <div class="inner">
-             <h1>TESTIMONIALS</h1>
-             <div class="border"></div>
-
-             <div class="row">
-                 <div class="col">
-                     <div class="testimonial">
-                         <img src="Media/jeena.jpg" alt="">
-                         <div class="name">Jeena Lims</div>
-                         <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                         </div>
-
-                         <p>“Art•emis is the best thing that could happen to me. I have cool sneakers delivered every month!”</p>
-                     </div>
-                 </div>
-
-                 <div class="col">
-                    <div class="testimonial">
-                        <img src="Media/plimo.jpg" alt="">
-                        <div class="name">Plimo Dicotiec</div>
-                        <div class="stars">
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                        </div>
-
-                        <p>“I like adrenaline, and with Art•emis I live it 100%. I don’t know what I’m going to get every month, but they never dissapoint.”</p>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="testimonial">
-                        <img src="Media/gina.jpg" alt="">
-                        <div class="name">Vic Comas</div>
-                        <div class="stars">
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="fas fa-star"></i>
-                           <i class="far fa-star"></i>
-                           <i class="far fa-star"></i>
-                        </div>
-
-                        <p>“All I can say is that Art•emis knows what people want. Them kicks are Fireeeee!”</p>
-                    </div>
-                </div>
-             </div>
-         </div>
-        </section>
-
-        <!---newsletter-->
-
-        <section class="newsletter">
-            <div class="container">
-                <form action="">
-                    <h1>DONT MISS ANYTHING</h1>
-
-                    <P>Our emails are curated to send quality tips our subscribers finds valuable. We also post givaways that you wouldn’t like to miss.</P>
-                    <div class="email-box">
-                        <i class="fas fa-envelope"></i>
-                        <input class="tbox" type="email" name= ""value="" placeholder="Your email">
-                        <button class="btn" type="button" name="button">Subscribe</button>
-                    </div>
-                </form>
+            <div class="pd-feed-item__img-wrap">
+              <div class="img-gastro pd-feed-item__img" role="img" aria-label="Fotografía de restaurante nocturno" style="height:100%;border-radius:inherit;"></div>
             </div>
-        </section>
+          </article>
 
-        <!---pricing-->
+          <!-- Feed Item 2 -->
+          <article class="pd-feed-item" role="article" tabindex="0" aria-label="El sonido de la ciudad: DJs emergentes">
+            <div class="pd-feed-item__content">
+              <span class="pd-badge pd-badge--cyan">Music</span>
+              <h3 class="pd-feed-item__title">El sonido de la ciudad: DJs emergentes</h3>
+              <p class="pd-feed-item__excerpt">Una inmersión profunda en los estudios y residencias de la nueva ola de productores que están definiendo el sonido de Santo Domingo.</p>
+            </div>
+            <div class="pd-feed-item__img-wrap">
+              <div class="img-music pd-feed-item__img" role="img" aria-label="Fotografía de DJ en vivo" style="height:100%;border-radius:inherit;"></div>
+            </div>
+          </article>
 
-            <section class="pricing">
-                <h1>PRICING GONE SIMPLE</h1>
-                <div class="pricing-table">
-                    <div class="pricing-card">
-                        <h3 class="pricing-card-header">DRIP</h3>
-                        <div class="price"><sup>$</sup>60<span>MO</span></div>
-                        <ul>
-                           <li>1x Pair of sneakers</li> 
-                           <li>1x Custom Tee</li> 
-                           <li>1x Custom Shoelaces</li> 
-                           <li>1x Sticker</li> 
-                        </ul>
-                        <a href="#" class="order-btn">Get This</a>
-                    </div>
+          <!-- Feed Item 3 -->
+          <article class="pd-feed-item" role="article" tabindex="0" aria-label="Arquitectura del ocio nocturno">
+            <div class="pd-feed-item__content">
+              <span class="pd-badge pd-badge--pink">Design</span>
+              <h3 class="pd-feed-item__title">Arquitectura del ocio nocturno</h3>
+              <p class="pd-feed-item__excerpt">Analizamos cómo el interiorismo y la iluminación transforman espacios industriales en destinos de culto para la noche dominicana.</p>
+            </div>
+            <div class="pd-feed-item__img-wrap">
+              <div class="img-design pd-feed-item__img" role="img" aria-label="Fotografía de espacio de diseño nocturno" style="height:100%;border-radius:inherit;"></div>
+            </div>
+          </article>
+        </div>
 
-                    <div class="pricing-card">
-                        <h3 class="pricing-card-header">FLAME</h3>
-                        <div class="price"><sup>$</sup>75<span>MO</span></div>
-                        <ul>
-                           <li>1x Pair of Sneakers</li> 
-                           <li>1x Custom Tee</li> 
-                           <li>1x Custom Shoelaces</li> 
-                           <li>1x Custom Socks</li> 
-                        </ul>
-                        <a href="#" class="order-btn">Get This</a>
-                    </div>
+        <!-- Sidebar -->
+        <aside class="pd-sidebar" aria-label="Artículos destacados">
+          <div class="pd-sidebar__header">
+            <p class="pd-overline">Artículos Destacados</p>
+          </div>
 
-                    <div class="pricing-card">
-                        <h3 class="pricing-card-header">ICE</h3>
-                        <div class="price"><sup>$</sup>86<span>MO</span></div>
-                        <ul>
-                           <li>1x Pair of Sneakers</li> 
-                           <li>1x Custom Tee</li> 
-                           <li>1x Custom Shoelaces</li> 
-                           <li>1x Custom Head Band</li> 
-                        </ul>
-                        <a href="#" class="order-btn">Get This</a>
-                    </div>
+          <!-- Highlight Card 1 -->
+          <article class="pd-highlight-card" tabindex="0" aria-label="La revolución culinaria de medianoche — destacado">
+            <div class="pd-highlight-card__img-wrap">
+              <div class="img-gastro pd-highlight-card__img" role="img" aria-label="Fotografía de gastronomía" style="height:100%;border-radius:inherit;"></div>
+            </div>
+            <div class="pd-highlight-card__body">
+              <span class="pd-badge pd-badge--green">Gastronomy</span>
+              <h3 class="pd-highlight-card__title">La revolución culinaria de medianoche</h3>
+              <p class="pd-card__read">4 Min Read</p>
+            </div>
+          </article>
 
-                    <div class="pricing-card">
-                        <h3 class="pricing-card-header">GOD</h3>
-                        <div class="price"><sup>$</sup>100<span>MO</span></div>
-                        <ul>
-                           <li>1x Pair of sneakers</li> 
-                           <li>1x Custom Hoodie</li> 
-                           <li>1x Custom Tee</li> 
-                           <li>1x Custom Snaback</li> 
-                        </ul>
-                        <a href="#" class="order-btn">Get This</a>
-                    </div>
-                </div>
-            </section>
+          <!-- Highlight Card 2 -->
+          <article class="pd-highlight-card" tabindex="0" aria-label="El sonido de la ciudad: DJs emergentes — destacado">
+            <div class="pd-highlight-card__img-wrap">
+              <div class="img-music pd-highlight-card__img" role="img" aria-label="Fotografía musical" style="height:100%;border-radius:inherit;"></div>
+            </div>
+            <div class="pd-highlight-card__body">
+              <span class="pd-badge pd-badge--cyan">Music</span>
+              <h3 class="pd-highlight-card__title">El sonido de la ciudad: DJs emergentes</h3>
+              <p class="pd-card__read">6 Min Read</p>
+            </div>
+          </article>
 
+          <!-- Highlight Card 3 -->
+          <article class="pd-highlight-card" tabindex="0" aria-label="Arquitectura del ocio nocturno — destacado">
+            <div class="pd-highlight-card__img-wrap">
+              <div class="img-design pd-highlight-card__img" role="img" aria-label="Fotografía de diseño de interiores" style="height:100%;border-radius:inherit;"></div>
+            </div>
+            <div class="pd-highlight-card__body">
+              <span class="pd-badge pd-badge--pink">Design</span>
+              <h3 class="pd-highlight-card__title">Arquitectura del ocio nocturno</h3>
+              <p class="pd-card__read">3 Min Read</p>
+            </div>
+          </article>
+        </aside>
 
-         <!---footer-->
+      </div>
+    </section>
 
-            <section class="last">
-                <div class="text-box2">
-                    <h1>START KICKING YOUR WAY OUT</h1> <br>
-                    <P>Subscribe and get the best kicks you can ever find, in a monthly basis. You can also post your pictures using the hashtags <br> <strong>#kickit</strong> <strong>#artemis </strong></P> <br>
-                
-            </section>
+    <!-- § Newsletter -->
+    <section aria-label="Suscripción" style="padding:80px 40px;max-width:1280px;margin:0 auto;">
+      <div class="pd-newsletter">
+        <div class="pd-newsletter__glow" aria-hidden="true"></div>
+        <h2 class="pd-h2 pd-newsletter__title">Lo mejor de RD, directo a tu correo</h2>
+        <p class="pd-newsletter__sub">
+          Sé el primero en conocer las aperturas secretas, eventos exclusivos y guías de la ciudad.<br>
+          Sin spam, solo contenido editorial premium.
+        </p>
+        <form class="pd-newsletter__form" novalidate aria-label="Formulario de suscripción">
+          <label for="pd-email-home" class="sr-only">Tu correo electrónico</label>
+          <input id="pd-email-home" class="pd-newsletter__input" type="email" placeholder="Tu correo electrónico" autocomplete="email" required />
+          <button type="submit" class="pd-btn pd-btn--outline">Entrar</button>
+        </form>
+      </div>
+    </section>
 
-            <footer class="footer">
-                <div class="social">
-                    <a href=""><i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href=""><i class="fab fa-twitter"></i>
-                    </i></a>
-                    <a href=""><i class="fab fa-instagram"></i>
-                    </i></a>
-                </div>
-                <ul class="list">
-                    <li>
-                        <a href="#">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms and Conditions</a>
-                    </li>
-                </ul>
-                <p class="copyright">© 2021 Artemis LLC</p>
-            </footer>
+  </main><!-- /home -->
 
 
-        <script src="main.js"></script>
-    </body>
+  <!-- ════════════════════════════════════════════════════════
+       PAGE 2 — ACERCA DE
+       WordPress: page-about.php
+       ════════════════════════════════════════════════════════ -->
+  <main data-page-content="acerca" hidden role="main" aria-label="Acerca de Pa'Donde">
+
+    <!-- § Hero -->
+    <section style="padding:60px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-about-hero">
+        <h1 class="pd-h1 pd-about-hero__title">La guía de República Dominicana hecha por locales</h1>
+        <p class="pd-about-hero__text">
+          Estábamos un poco jartos. Así, con jota. Cada vez que queríamos saber qué estaba pasando en la ciudad,
+          dónde estaba lo bueno, qué valía la pena — no aparecía nada. O aparecía algo de hace tres años.
+          RD tiene demasiado que ofrecer para que nadie lo esté contando bien. Así que lo construimos nosotros.
+          Sin joder mucho.
+        </p>
+        <blockquote class="pd-blockquote">
+          "RD tiene mucho que ofrecer. Nosotros lo filtramos."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- § Lo que hacemos -->
+    <section aria-label="Lo que hacemos" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-what-we-do">
+        <h2 class="pd-h2 pd-what-we-do__title">Lo que hacemos</h2>
+        <p class="pd-what-we-do__text">
+          Pa'Donde es una guía editorial de descubrimiento local para República Dominicana. Cubrimos bares, restaurantes,
+          rooftops, eventos, cafés y cultura dominicana — con criterio real y voz local. Cada artículo que publicamos
+          sirve para tres cosas a la vez: ayudarte a decidir dónde ir esta noche, entender el país más profundo,
+          y descubrir lo que hace única a la cultura dominicana.
+        </p>
+      </div>
+    </section>
+
+    <!-- § Cómo lo hacemos -->
+    <section aria-label="Cómo lo hacemos" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-how-section">
+        <h2 class="pd-h2 pd-how-section__title">Cómo lo hacemos</h2>
+        <p class="pd-how-section__sub">No hay fórmula secreta. Hay tres cosas que guían todo lo que publicamos:</p>
+        <div class="pd-how-cards">
+
+          <!-- Card 01 -->
+          <div class="pd-how-card">
+            <span class="pd-how-card__num" aria-hidden="true">01</span>
+            <p class="pd-how-card__label">Filtro</p>
+            <h3 class="pd-how-card__title">Lo filtramos nosotros</h3>
+            <p class="pd-how-card__text">
+              No publicamos todo. Si no vale la pena, no entra. Cada artículo tiene que ganarse su espacio antes
+              de aparecer en Pa'Donde.
+            </p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="pd-how-card">
+            <span class="pd-how-card__num" aria-hidden="true">02</span>
+            <p class="pd-how-card__label">Voz</p>
+            <h3 class="pd-how-card__title">Hablamos como gente de aquí</h3>
+            <p class="pd-how-card__text">
+              No escribimos para turistas ni para algoritmos. Escribimos como dominicanos que conocen el país de verdad
+              — sin necesidad de buscarlo en Google.
+            </p>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="pd-how-card">
+            <span class="pd-how-card__num" aria-hidden="true">03</span>
+            <p class="pd-how-card__label">Comunidad</p>
+            <h3 class="pd-how-card__title">Pa'Donde no lo escribimos solos</h3>
+            <p class="pd-how-card__text">
+              Si conoces nuestra media islita de verdad y tienes algo que decir, aquí te damos el chance.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- § Detrás de Pa'Donde -->
+    <section aria-label="Detrás de Pa'Donde" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-behind">
+        <h2 class="pd-behind__title">Detrás de Pa'Donde</h2>
+        <p class="pd-behind__text">
+          Un grupo de jóvenes dominicanos de distintos mundos — tecnología, economía, mercadeo, turismo, fintech —
+          unidos por una sola convicción: RD tiene mucho más que mostrar de lo que el mundo ve. Aquí no hay un
+          bojote de cuarto involucrado. Somos gente de aquí que conoce el país, vive la cultura y cree que la mejor
+          guía de República Dominicana la tienen que hacer los dominicanos.
+        </p>
+      </div>
+    </section>
+
+    <!-- § Escribe para Pa'Donde -->
+    <section aria-label="Colabora con nosotros" style="padding:80px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-editorial-cta">
+        <div class="pd-editorial-cta__inner">
+          <div>
+            <div class="pd-editorial-cta__eyebrow">
+              <div class="pd-editorial-cta__line"></div>
+              <span class="pd-editorial-cta__label">Colabora con nosotros</span>
+            </div>
+            <h2 class="pd-editorial-cta__title">Escribe para Pa'Donde.</h2>
+            <p class="pd-editorial-cta__text">
+              Pa'Donde no es un blog cerrado. Si conoces República Dominicana de verdad — sus lugares,
+              su gente, su cultura — y tienes algo que vale la pena contar, queremos leerte.
+            </p>
+            <p class="pd-editorial-cta__text" style="margin-bottom:0;">
+              Tu voz se mantiene. Tu nombre va en el artículo. Nosotros ponemos el criterio editorial
+              y la distribución. No publicamos todo. Publicamos lo bueno.
+            </p>
+          </div>
+
+          <div class="pd-editorial-cta__card">
+            <!-- Decorative icon / logotype -->
+            <div style="width:100%;height:24px;display:flex;align-items:center;">
+              <span style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--pd-pink);opacity:0.8;">Pa'Donde</span>
+            </div>
+            <p class="pd-editorial-cta__quote">¿Tienes algo que contar?</p>
+            <a href="mailto:prensa@padonde.net" class="pd-btn pd-btn--deep" style="width:100%;text-align:center;border-radius:4px;">
+              Escríbenos a<br>
+              <span style="font-size:11px;letter-spacing:0.5px;">prensa@padonde.net</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- § Contacto -->
+    <section class="pd-contact" aria-label="Contacto" style="padding:80px 40px;max-width:1280px;margin:0 auto;">
+      <div style="position:relative;">
+        <div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:672px;max-width:100%;height:256px;background:rgba(255,177,193,0.05);border-radius:50%;filter:blur(60px);pointer-events:none;"></div>
+        <h2 class="pd-contact__title">Contacto</h2>
+        <div class="pd-contact__grid">
+
+          <div class="pd-contact__col">
+            <p class="pd-contact__col-label">Comercial</p>
+            <h3 class="pd-contact__col-title">Ventas</h3>
+            <a href="mailto:ventas@padonde.net" class="pd-contact__col-link">
+              ventas@padonde.net
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+
+          <div class="pd-contact__col">
+            <p class="pd-contact__col-label">Media</p>
+            <h3 class="pd-contact__col-title">Prensa &amp;<br>Colaboradores</h3>
+            <a href="mailto:prensa@padonde.net" class="pd-contact__col-link">
+              prensa@padonde.net
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+
+          <div class="pd-contact__col">
+            <p class="pd-contact__col-label">Inquiries</p>
+            <h3 class="pd-contact__col-title">General</h3>
+            <a href="mailto:contacto@padonde.net" class="pd-contact__col-link">
+              contacto@padonde.net
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /acerca -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       PAGE 3 — EXPLORAR
+       WordPress: page-explorar.php
+       ════════════════════════════════════════════════════════ -->
+  <main data-page-content="explorar" hidden role="main" aria-label="Explorar artículos">
+
+    <!-- § Hero + Search -->
+    <section style="padding:60px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-explore-hero">
+        <h1 class="pd-h1 pd-explore-hero__title">Explorar</h1>
+        <p class="pd-explore-hero__sub">
+          Descubre los mejores lugares, eventos y experiencias de República Dominicana. Filtrado con criterio, escrito por locales.
+        </p>
+      </div>
+
+      <!-- Search -->
+      <div class="pd-search-bar">
+        <label for="pd-search-input" class="sr-only">Buscar artículos, zonas o planes</label>
+        <input
+          id="pd-search-input"
+          class="pd-search-bar__input"
+          type="search"
+          placeholder="Buscar artículos, zonas o planes..."
+          autocomplete="off"
+        />
+        <span class="pd-search-bar__icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="pd-filters" role="group" aria-label="Filtros de categoría">
+        <button class="pd-filter-btn active" data-cat="all">Todos</button>
+        <button class="pd-filter-btn" data-cat="nightlife">Nightlife</button>
+        <button class="pd-filter-btn" data-cat="gastronomia">Gastronomía</button>
+        <button class="pd-filter-btn" data-cat="rooftops">Rooftops</button>
+        <button class="pd-filter-btn" data-cat="eventos">Eventos</button>
+        <button class="pd-filter-btn" data-cat="cultura">Cultura</button>
+        <button class="pd-filter-btn" data-cat="zonas">Zonas</button>
+      </div>
+    </section>
+
+    <!-- § Article Grid -->
+    <section aria-label="Artículos" style="padding:48px 40px 0;max-width:1280px;margin:0 auto;">
+      <div class="pd-grid-3">
+
+        <article class="pd-explore-card" data-cat="rooftops" data-title="Los 5 Rooftops Más Exclusivos de Piantini" tabindex="0" aria-label="Los 5 Rooftops Más Exclusivos de Piantini — 5 min de lectura">
+          <div class="img-rooftop pd-explore-card__img" role="img" aria-label="Rooftop nocturno en la ciudad"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--cyan">Rooftops</span>
+            <h3 class="pd-explore-card__title">Los 5 Rooftops Más Exclusivos de Piantini</h3>
+            <p class="pd-explore-card__read">5 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="nightlife" data-title="Speakeasies Ocultos en la Ciudad Colonial" tabindex="0" aria-label="Speakeasies Ocultos en la Ciudad Colonial — 7 min de lectura">
+          <div class="img-nightlife pd-explore-card__img" role="img" aria-label="Speakeasy íntimo y sofisticado"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--pink">Nightlife</span>
+            <h3 class="pd-explore-card__title">Speakeasies Ocultos en la Ciudad Colonial</h3>
+            <p class="pd-explore-card__read">7 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="eventos" data-title="Guía Definitiva de Festivales Electrónicos" tabindex="0" aria-label="Guía Definitiva de Festivales Electrónicos — 4 min de lectura">
+          <div class="img-eventos pd-explore-card__img" role="img" aria-label="Festival de música electrónica"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--cyan">Eventos</span>
+            <h3 class="pd-explore-card__title">Guía Definitiva de Festivales Electrónicos</h3>
+            <p class="pd-explore-card__read">4 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="gastronomia" data-title="La Nueva Ola de Gastronomía Dominicana" tabindex="0" aria-label="La Nueva Ola de Gastronomía Dominicana — 6 min de lectura">
+          <div class="img-gastro pd-explore-card__img" role="img" aria-label="Plato de fusión dominicana"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--green">Gastronomía</span>
+            <h3 class="pd-explore-card__title">La Nueva Ola de Gastronomía Dominicana</h3>
+            <p class="pd-explore-card__read">6 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="cultura" data-title="El Renacimiento del Arte Contemporáneo en Santo Domingo" tabindex="0" aria-label="El Renacimiento del Arte Contemporáneo en Santo Domingo — 8 min de lectura">
+          <div class="img-cultura pd-explore-card__img" role="img" aria-label="Arte contemporáneo en galería"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--cyan">Cultura</span>
+            <h3 class="pd-explore-card__title">El Renacimiento del Arte Contemporáneo en Santo Domingo</h3>
+            <p class="pd-explore-card__read">8 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="zonas" data-title="La Zona Colonial Después de la Medianoche" tabindex="0" aria-label="La Zona Colonial Después de la Medianoche — 5 min de lectura">
+          <div class="img-design pd-explore-card__img" role="img" aria-label="La Zona Colonial de noche"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--pink">Zonas</span>
+            <h3 class="pd-explore-card__title">La Zona Colonial Después de la Medianoche</h3>
+            <p class="pd-explore-card__read">5 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="gastronomia" data-title="Mixología Avanzada: Cócteles con Ingredientes Endémicos" tabindex="0" aria-label="Mixología Avanzada: Cócteles con Ingredientes Endémicos — 6 min de lectura">
+          <div class="img-nightlife pd-explore-card__img" role="img" aria-label="Cóctel artesanal con ingredientes dominicanos"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--green">Gastronomía</span>
+            <h3 class="pd-explore-card__title">Mixología Avanzada: Cócteles con Ingredientes Endémicos</h3>
+            <p class="pd-explore-card__read">6 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="eventos" data-title="Festivales de Electrónica Que Marcarán el 2026" tabindex="0" aria-label="Festivales de Electrónica Que Marcarán el 2026 — 4 min de lectura">
+          <div class="img-eventos pd-explore-card__img" role="img" aria-label="Festival de música electrónica 2026"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--cyan">Eventos</span>
+            <h3 class="pd-explore-card__title">Festivales de Electrónica Que Marcarán el 2026</h3>
+            <p class="pd-explore-card__read">4 min de lectura</p>
+          </div>
+        </article>
+
+        <article class="pd-explore-card" data-cat="nightlife" data-title="Guía Secreta: Los Speakeasies Ocultos de Piantini" tabindex="0" aria-label="Guía Secreta: Los Speakeasies Ocultos de Piantini — 7 min de lectura">
+          <div class="img-music pd-explore-card__img" role="img" aria-label="Bar secreto en Piantini"></div>
+          <div class="pd-explore-card__gradient" aria-hidden="true"></div>
+          <div class="pd-explore-card__content">
+            <span class="pd-badge pd-badge--pink">Nightlife</span>
+            <h3 class="pd-explore-card__title">Guía Secreta: Los Speakeasies Ocultos de Piantini</h3>
+            <p class="pd-explore-card__read">7 min de lectura</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Pagination -->
+      <nav class="pd-pagination" aria-label="Paginación de artículos">
+        <button class="pd-page-btn active" aria-label="Página 1" aria-current="page">1</button>
+        <button class="pd-page-btn" aria-label="Página 2">2</button>
+        <button class="pd-page-btn" aria-label="Página 3">3</button>
+        <span class="pd-page-ellipsis" aria-hidden="true">…</span>
+        <button class="pd-page-btn" aria-label="Página 12">12</button>
+      </nav>
+    </section>
+
+    <!-- § Newsletter (Explorar) -->
+    <section aria-label="Suscripción" style="padding:64px 40px;max-width:1280px;margin:0 auto;">
+      <div class="pd-newsletter" style="background:rgba(255,177,193,0.04);border-color:rgba(255,177,193,0.15);">
+        <div class="pd-newsletter__glow" aria-hidden="true"></div>
+        <h2 class="pd-h2 pd-newsletter__title" style="font-size:clamp(26px,3.5vw,40px);">
+          No te pierdas ningún estreno en RD
+        </h2>
+        <form class="pd-newsletter__form" novalidate aria-label="Formulario de suscripción">
+          <label for="pd-email-explorar" class="sr-only">Tu correo electrónico</label>
+          <input id="pd-email-explorar" class="pd-newsletter__input" type="email" placeholder="Tu correo electrónico" autocomplete="email" required />
+          <button type="submit" class="pd-btn pd-btn--primary">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+
+  </main><!-- /explorar -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       ARTICLE PAGE TEMPLATE
+       WordPress: single.php
+       ════════════════════════════════════════════════════════ -->
+  <main data-page-content="article" hidden role="main" aria-label="Artículo">
+    <div class="pd-article">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Ruta de navegación" style="margin-bottom:32px;">
+        <ol style="display:flex;gap:8px;align-items:center;font-size:13px;color:rgba(255,255,255,0.4);list-style:none;">
+          <li><a href="#home" data-page="home" style="color:var(--pd-pink);transition:opacity 0.2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">Home</a></li>
+          <li aria-hidden="true" style="opacity:0.4;">/</li>
+          <li><a href="#explorar" data-page="explorar" style="color:rgba(255,255,255,0.4);transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Explorar</a></li>
+          <li aria-hidden="true" style="opacity:0.4;">/</li>
+          <li aria-current="page" style="color:var(--pd-text-muted);">Vida Nocturna</li>
+        </ol>
+      </nav>
+
+      <!-- Meta -->
+      <div class="pd-article__meta">
+        <span class="pd-badge pd-badge--pink">Nightlife</span>
+        <span class="pd-article__divider" aria-hidden="true"></span>
+        <div class="pd-article__author">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--pd-pink),var(--pd-pink-hot));display:flex;align-items:center;justify-content:center;font-family:var(--font-label);font-weight:700;font-size:14px;color:white;flex-shrink:0;" aria-hidden="true">E</div>
+          <span class="pd-article__author-name">Editorial Pa'Donde</span>
+        </div>
+        <span class="pd-article__divider" aria-hidden="true"></span>
+        <time class="pd-article__date" datetime="2026-05-01">1 de mayo, 2026</time>
+        <span class="pd-article__divider" aria-hidden="true"></span>
+        <span class="pd-article__read-time">12 Min Read</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="pd-article__title">
+        Vida Nocturna en Santo Domingo: La Guía Completa 2026
+      </h1>
+
+      <!-- Hero Image -->
+      <div class="img-hero pd-article__hero" role="img" aria-label="Panorámica de la vida nocturna en Santo Domingo" style="height:420px;border-radius:12px;margin-bottom:8px;"></div>
+      <p class="pd-article__hero-caption">La escena nocturna de Santo Domingo ha evolucionado radicalmente en los últimos dos años.</p>
+
+      <!-- Body -->
+      <div class="pd-article__body">
+
+        <p>
+          Santo Domingo de noche es otro país. Una ciudad que se transforma cuando el sol desaparece, que abre
+          espacios que no existen de día, que produce sonidos que no tienen nombre todavía. Esta guía la escribimos
+          para los que saben que la noche en RD no se improvisa: se curada.
+        </p>
+
+        <h2>Los Epicentros de la Noche</h2>
+
+        <p>
+          Piantini sigue siendo el corazón. Pero ya no es el único latido. La Zona Colonial ha tenido un
+          renacimiento silencioso — bares que abren en casas coloniales centenarias, patios que se convierten
+          en pistas de baile, calles adoquinadas que guardan el secreto mejor que cualquier velvet rope.
+        </p>
+
+        <!-- Pull Quote -->
+        <blockquote class="pd-pull-quote">
+          "La noche en RD no se improvisa: se curada. Y eso marca toda la diferencia."
+        </blockquote>
+
+        <p>
+          Gazcue, Bella Vista, Los Prados — cada zona tiene su propio ritmo. Entenderlas es entender la ciudad.
+          Y eso es exactamente lo que hacemos en Pa'Donde: te damos el mapa que los Google Maps no tienen.
+        </p>
+
+        <!-- Inline image -->
+        <div class="img-nightlife pd-article__inline-img" role="img" aria-label="Interior de un bar exclusivo en Piantini" style="height:320px;"></div>
+
+        <h2>Dónde Empezar</h2>
+
+        <p>
+          El error más común es llegar antes de las 11pm. En Santo Domingo, las 11 es la hora del coctel de bienvenida.
+          La fiesta de verdad comienza a la 1am y termina cuando el sol decide que ya es suficiente.
+        </p>
+
+        <ul>
+          <li><strong>Bar Scene</strong> — Los cócteles que están redefiniendo el craft cocktail en el Caribe</li>
+          <li><strong>Rooftops</strong> — Las alturas donde la ciudad se ve diferente y el ron sabe mejor</li>
+          <li><strong>Speakeasies</strong> — Los lugares que no aparecen en ninguna lista pero que todos los locales conocen</li>
+          <li><strong>Live Music</strong> — Donde el merengue, la bachata y la electrónica coexisten sin drama</li>
+        </ul>
+
+        <h2>El Criterio Pa'Donde</h2>
+
+        <p>
+          Incluimos un lugar porque lo visitamos. Lo volvimos a visitar. Hablamos con el dueño, con el bartender,
+          con los clientes de siempre. Y luego decidimos si vale la pena tu noche. Eso es filtrar con criterio real.
+        </p>
+
+      </div>
+
+      <!-- Share -->
+      <div class="pd-share" aria-label="Compartir artículo">
+        <span class="pd-share__label">Compartir:</span>
+        <button class="pd-share__btn" data-share="twitter" aria-label="Compartir en Twitter">Twitter</button>
+        <button class="pd-share__btn" data-share="whatsapp" aria-label="Compartir en WhatsApp">WhatsApp</button>
+        <button class="pd-share__btn" data-share="facebook" aria-label="Compartir en Facebook">Facebook</button>
+        <button class="pd-share__btn" data-share="copy" aria-label="Copiar enlace">Copiar link</button>
+      </div>
+
+      <!-- Related Articles -->
+      <aside class="pd-related" aria-label="Artículos relacionados">
+        <h2 class="pd-related__title">También te puede interesar</h2>
+        <div class="pd-related__grid">
+
+          <article class="pd-related-card" tabindex="0">
+            <div class="pd-related-card__img-wrap">
+              <div class="img-rooftop pd-related-card__img" role="img" aria-label="Rooftop nocturno" style="height:100%;"></div>
+            </div>
+            <p class="pd-related-card__cat">Rooftops</p>
+            <h3 class="pd-related-card__title">Los 5 Rooftops Más Exclusivos de Piantini</h3>
+          </article>
+
+          <article class="pd-related-card" tabindex="0">
+            <div class="pd-related-card__img-wrap">
+              <div class="img-gastro pd-related-card__img" role="img" aria-label="Gastronomía nocturna" style="height:100%;"></div>
+            </div>
+            <p class="pd-related-card__cat">Gastronomía</p>
+            <h3 class="pd-related-card__title">La revolución culinaria de medianoche</h3>
+          </article>
+
+          <article class="pd-related-card" tabindex="0">
+            <div class="pd-related-card__img-wrap">
+              <div class="img-music pd-related-card__img" role="img" aria-label="Música en vivo" style="height:100%;"></div>
+            </div>
+            <p class="pd-related-card__cat">Music</p>
+            <h3 class="pd-related-card__title">El sonido de la ciudad: DJs emergentes</h3>
+          </article>
+
+        </div>
+      </aside>
+
+    </div>
+  </main><!-- /article -->
+
+</div><!-- /pd-page -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER (WordPress: footer.php)
+     ══════════════════════════════════════════════════════════ -->
+<footer class="pd-footer" role="contentinfo">
+  <div class="pd-footer__inner">
+    <div class="pd-footer__brand">
+      <a href="#home" data-page="home" class="pd-footer__name">Pa'Donde</a>
+      <p class="pd-footer__copy">© 2026 Pa'Donde Editorial. All rights reserved.</p>
+    </div>
+    <div class="pd-footer__links">
+      <div class="pd-footer__col">
+        <a href="#acerca"                     class="pd-footer__link pd-footer__link--accent" data-page="acerca">About</a>
+        <a href="mailto:ventas@padonde.net"   class="pd-footer__link">Advertise</a>
+        <a href="mailto:contacto@padonde.net" class="pd-footer__link">Contact</a>
+      </div>
+      <div class="pd-footer__col">
+        <a href="#" class="pd-footer__link">Privacy Policy</a>
+        <a href="#" class="pd-footer__link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="pd-footer__inner" style="border-top:1px solid rgba(255,255,255,0.05);margin-top:32px;padding-top:28px;">
+    <span style="font-family:var(--font-display);font-size:16px;color:white;opacity:0.8;font-weight:600;">Pa'Donde</span>
+    <div class="pd-footer__bottom-links">
+      <a href="#" class="pd-footer__bottom-link">Privacidad</a>
+      <a href="#" class="pd-footer__bottom-link">Términos</a>
+      <a href="mailto:contacto@padonde.net" class="pd-footer__bottom-link">Contacto</a>
+      <a href="mailto:ventas@padonde.net"   class="pd-footer__bottom-link">Publicidad</a>
+    </div>
+    <span class="pd-footer__bottom-link" style="cursor:default;">© 2026 Pa'Donde. The Sophisticated Insider.</span>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
 </html>
